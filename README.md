@@ -4,19 +4,19 @@
 ## Table of contents
 
 1. [CSS](#css)
-    + [Whitespace](#whitespace)
-    + [Comments](#comments)
-    + [Naming Conventions](#naming-conventions)
-    + [Formatting](#formatting)
-    + [Declaration order](#declaration-order)
+    - [Whitespace](#whitespace)
+    - [Comments](#comments)
+    - [Naming Conventions](#naming-conventions)
+    - [Formatting](#formatting)
+    - [Declaration order](#declaration-order)
 
 2. [SASS](#sass)
-    + [Syntax](#syntax)
-    + [Ordering](#ordering)
-    + [Vendor Prefixes](#vendor-prefixes)
-    + [Variables](#variables)
-    + [Mixins](#mixins)
-    + [Nested Selectors](#nested-selectors)
+    - [Syntax](#syntax)
+    - [Ordering](#ordering)
+    - [Vendor Prefixes](#vendor-prefixes)
+    - [Variables](#variables)
+    - [Mixins](#mixins)
+    - [Nested Selectors](#nested-selectors)
 3. [References](#references)
 
 
@@ -465,7 +465,7 @@ Beside follow as style guide of css. In Sass, I have added some style guides for
 Should use SCSS-syntax because it's valid CSS and more expressive in our eyes.
 
 ``` sass
-// Not prefer
+// SASS syntax - Not prefer
 .selector-parent
     color: #fff
     background-color: #000
@@ -475,7 +475,7 @@ Should use SCSS-syntax because it's valid CSS and more expressive in our eyes.
 ```
 
 ``` scss
-// Prefer
+// SCSS syntax - Prefer
 .selector-parent {
     color: #fff;
     background-color: #000;
