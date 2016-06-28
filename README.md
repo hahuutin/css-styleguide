@@ -4,19 +4,18 @@
 ## Table of contents
 
 1. [CSS](#css)
-    - [Whitespace](#whitespace)
-    - [Comments](#comments)
-    - [Naming Conventions](#naming-conventions)
-    - [Formatting](#formatting)
-    - [Declaration order](#declaration-order)
-
+    + [Whitespace](#whitespace)
+    + [Comments](#comments)
+    + [Naming Conventions](#naming-conventions)
+    + [Formatting](#formatting)
+    + [Declaration order](#declaration-order)
 2. [SASS](#sass)
-    - [Syntax](#syntax)
-    - [Ordering](#ordering)
-    - [Vendor Prefixes](#vendor-prefixes)
-    - [Variables](#variables)
-    - [Mixins](#mixins)
-    - [Nested Selectors](#nested-selectors)
+    + [Syntax](#syntax)
+    + [Ordering](#ordering)
+    + [Vendor Prefixes](#vendor-prefixes)
+    + [Variables](#variables)
+    + [Mixins](#mixins)
+    + [Nested Selectors](#nested-selectors)
 3. [References](#references)
 
 
@@ -385,6 +384,20 @@ $('.js-dialog-opener')
 }
 ```
 
+#### Avoid unnecessary shorthand declarations
+
+``` css
+/* Bad */
+.selector {
+  margin: 0 0 20px;
+}
+
+/* Good */
+.selector {
+  margin-bottom: 20px;
+}
+```
+
 ##### Use hexadecimal color codes unless using rgba or hsl or name
 
 ``` css
@@ -412,6 +425,7 @@ $('.js-dialog-opener')
     font-weight: 400;
 }
 ```
+
 
 ### Declaration order
 
