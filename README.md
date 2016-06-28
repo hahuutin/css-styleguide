@@ -1,18 +1,29 @@
 # CSS/SASS coding style guide
 
+
 ## Table of contents
 
-+ [Whitespace](#whitespace)
-+ [Comments](#comments)
-+ [Naming Conventions](#naming-conventions)
-+ [Formatting](#formatting)
-+ [Declaration order](#declaration-order)
-+ [Sass](#sass)
+1. [CSS](#css)
+
+    + [Whitespace](#whitespace)
+    + [Comments](#comments)
+    + [Naming Conventions](#naming-conventions)
+    + [Formatting](#formatting)
+    + [Declaration order](#declaration-order)
+
+2. [SASS](#sass)
+
     + [Syntax](#syntax)
-    + [Sass declaration order](#sass-declaration-order)
+    + [Ordering](#ordering)
     + [Vendor Prefixes](#vendor-prefixes)
+    + [Variables](#variables)
     + [Mixins](#mixins)
-+ [References](#references)
+    + [Nested Selectors](#nested-selectors)
+
+3. [References](#references)
+
+
+## CSS
 
 
 ### Whitespace
@@ -29,6 +40,30 @@ _Tip: use an [EditorConfig](http://editorconfig.org/) file (or equivalent) to he
 
 
 ### Comments
+
+Prefer comments on their own line. Avoid end-of-line comments.
+
+Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others. Great code comments convey context or purpose. Do not simply reiterate a component or class name.
+
+Be sure to write in complete sentences for larger comments and succinct phrases for general notes.
+
+``` css
+/* Bad */
+/* Modal header */
+.modal-header {
+    ...
+}
+
+.selector {
+    color: #000; /* Go to comment here */
+}
+
+/* Good */
+/* Wrapping element for .modal-title and .modal-close */
+.modal-header {
+    ...
+}
+```
 
 
 ### Naming Conventions
@@ -407,14 +442,12 @@ Related property declarations should be grouped together following the order:
     height: 100px;
 
     /* Typography */
-
     font: normal 13px "Helvetica Neue", sans-serif;
     line-height: 1.5;
     color: #333;
     text-align: center;
 
     /* Visual */
-
     background-color: #f5f5f5;
     border: 1px solid #e5e5e5;
     border-radius: 3px;
@@ -425,7 +458,7 @@ Related property declarations should be grouped together following the order:
 ```
 
 
-### Sass
+## SASS
 
 Beside follow as style guide of css. In Sass, I have added some style guides for them.
 
@@ -434,28 +467,54 @@ Beside follow as style guide of css. In Sass, I have added some style guides for
 
 Should use SCSS-syntax because it's valid CSS and more expressive in our eyes.
 
+``` sass
+// Not prefer
+.selector-parent
+    color: #fff
+    background-color: #000
 
-#### Sass declaration order
+    .selector-child
+        font-size: 20px
+```
 
-+ List @extend(s) First
-+ List @include(s) Next
-+ List "Regular" Styles Next
-+ List Your Media Queries Next
-+ Nested Pseudo Classes and Pseudo Elements Next
-+ Nested Selectors Last
+``` scss
+// Prefer
+.selector-parent {
+    color: #fff;
+    background-color: #000;
+
+    .selector-child {
+        font-size: 20px;
+    }
+}
+```
+
+
+#### Ordering
+
++ List $variable should always appear at the top
++ List @extend(s) next
++ List @include(s) next
++ List regular style next
++ List your media queries next
++ Nested pseudo classes and pseudo elements next
++ Nested selectors last
 
 ``` scss
 .block {
+    $background: #fff;
+    $background-hover: #f00;
+
     @extend %module;
     @include transition(all 0.3s ease);
-    background: #fff;
+    background: $background;
 
     @include breakpoint(phone) {
         width: 100%;
     }
 
     &:hover {
-        background: #f00;
+        background: $background-hover;
     }
 
     &::before {
@@ -476,36 +535,25 @@ Should use SCSS-syntax because it's valid CSS and more expressive in our eyes.
 Never Write Vendor Prefixes. You should use [Autoprefixer](https://github.com/postcss/autoprefixer) instead of. Autoprefixer parses CSS files and adds vendor prefixes to CSS rules using the Can I Use database to determine which prefixes are needed.
 
 
+#### Variables
+
+_Updating..._
+
+
 #### Mixins
 
-+ Mixins should only be used when there are dynamic properties, otherwise use @extend
-+ Mixins that output selectors should be capital-case: @mixin GridBuilder
-+ Mixins that output only properties should be camel-case: @mixin borderBox
-+ Mixins should be prefixed if they are part of a public module: @mixin as-GridBuilder
-+ In general, mixins with logic should not be longer than ~50 lines just like any other programming language
-+ Private mixins that are not used outside of the current file should be prefixed with a dash: @mixin -gridHelper
-+ Avoid using more than 4 parameters. It is a sign that a mixin is too complex. When Sass adds hashes life will be easier.
-+ Mixins should be documented
+_Updating..._
+
+
+#### Nested Selectors
+
+Do not nest selectors more than three levels deep!
 
 ``` scss
-// Loop through each breakpoint and build
-// classes for each using the breakpoint mixins
-// First breakpoint is no media query — mobile-first.
-//
-// @param {List} $breakpoints List of column breakpoints
-// @param {Boolean} $spacing Include spacing classes?
-// @param {Boolean} $visibility Include visibilty classes?
-// @param {Boolean} $layout Include layout classes?
-// @api private
-@mixin -rg-Breakpoints($breakpoints, $spacing: true, $visibility: true, $layout: true) {
-    @each $columns in $breakpoints {
-        @if index($breakpoints, $columns) == 1 {
-            @include -rg-BreakpointClasses($columns, $spacing, $visibility, $layout);
-        }
-        @else {
-            @include rg-from($columns) {
-                @include -rg-BreakpointClasses($columns, $spacing, $visibility, $layout);
-            }
+.page-container {
+    .content {
+        .profile {
+            // STOP!
         }
     }
 }
