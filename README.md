@@ -4,7 +4,6 @@
 ## Table of contents
 
 1. [CSS](#css)
-
     + [Whitespace](#whitespace)
     + [Comments](#comments)
     + [Naming Conventions](#naming-conventions)
@@ -12,14 +11,12 @@
     + [Declaration order](#declaration-order)
 
 2. [SASS](#sass)
-
     + [Syntax](#syntax)
     + [Ordering](#ordering)
     + [Vendor Prefixes](#vendor-prefixes)
     + [Variables](#variables)
     + [Mixins](#mixins)
     + [Nested Selectors](#nested-selectors)
-
 3. [References](#references)
 
 
