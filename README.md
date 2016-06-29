@@ -571,7 +571,9 @@ Do not nest selectors more than three levels deep!
 ```
 
 
-### References
+## References
+
+A huge of source that i referred to done this repository.
 
 + [Principles of writing consistent, idiomatic CSS.](https://github.com/necolas/idiomatic-css)
 + [Airbnb - A mostly reasonable approach to CSS and Sass.](https://github.com/airbnb/css)
