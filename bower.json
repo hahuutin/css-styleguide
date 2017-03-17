@@ -1,0 +1,16 @@
+[
+    {
+        "first_name": "sy",
+        "last_name": "dinh",
+        "age": 21,
+        "company": "Framgia Viet Nam",
+        "Position": "Frontend Developer"
+    },
+    {
+        "first_name": "no",
+        "last_name": "name",
+        "age": 21,
+        "company": "Framgia Viet Nam",
+        "Position": "QA"
+    }
+]
